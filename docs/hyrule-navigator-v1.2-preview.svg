@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">海拉鲁导航 v1.2.0 项目预览</title>
+  <desc id="desc">电脑端海拉鲁地图与 Switch Tesla OVL 图片主题传送界面示意图</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07131d"/>
+      <stop offset="0.55" stop-color="#0b2631"/>
+      <stop offset="1" stop-color="#142014"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#193643"/>
+      <stop offset="1" stop-color="#0d1d26"/>
+    </linearGradient>
+    <linearGradient id="map" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#719059"/>
+      <stop offset="0.42" stop-color="#3f6d55"/>
+      <stop offset="0.7" stop-color="#9a7b3f"/>
+      <stop offset="1" stop-color="#314d62"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse">
+      <path d="M38 0H0V38" fill="none" stroke="#e9f7df" stroke-opacity="0.16" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1400" height="760" rx="32" fill="url(#bg)"/>
+  <circle cx="1220" cy="80" r="230" fill="#d8b75e" opacity="0.07"/>
+  <circle cx="140" cy="680" r="300" fill="#42d6e9" opacity="0.05"/>
+
+  <g transform="translate(70 58)">
+    <text x="0" y="0" dominant-baseline="hanging" fill="#f5fbff" font-family="Arial, Microsoft YaHei, sans-serif" font-size="54" font-weight="800">海拉鲁导航</text>
+    <text x="374" y="13" dominant-baseline="hanging" fill="#f2cf71" font-family="Arial, sans-serif" font-size="27" font-weight="700">v1.2.0</text>
+    <text x="0" y="72" dominant-baseline="hanging" fill="#a9c9d5" font-family="Arial, Microsoft YaHei, sans-serif" font-size="22">《旷野之息》局域网地图 · 实时坐标 · 电脑选点 · Switch 按 A 确认传送</text>
+
+    <g transform="translate(0 128)" font-family="Arial, Microsoft YaHei, sans-serif" font-size="17" font-weight="700">
+      <rect width="150" height="38" rx="19" fill="#173b45" stroke="#56dff1" stroke-opacity="0.7"/>
+      <text x="75" y="25" text-anchor="middle" fill="#91eef8">Windows / macOS</text>
+      <rect x="166" width="118" height="38" rx="19" fill="#2e2b1d" stroke="#e5c66e" stroke-opacity="0.7"/>
+      <text x="225" y="25" text-anchor="middle" fill="#f3d986">Tesla OVL</text>
+      <rect x="300" width="128" height="38" rx="19" fill="#203726" stroke="#78d08b" stroke-opacity="0.7"/>
+      <text x="364" y="25" text-anchor="middle" fill="#9ce3aa">14/15 主题</text>
+      <rect x="444" width="132" height="38" rx="19" fill="#33221f" stroke="#ff9d83" stroke-opacity="0.7"/>
+      <text x="510" y="25" text-anchor="middle" fill="#ffc0ac">安全确认传送</text>
+    </g>
+  </g>
+
+  <g filter="url(#shadow)">
+    <g transform="translate(68 260)">
+      <rect width="790" height="430" rx="24" fill="#071017" stroke="#6ed5e3" stroke-opacity="0.35" stroke-width="2"/>
+      <rect x="18" y="18" width="754" height="46" rx="12" fill="#0e2630"/>
+      <circle cx="44" cy="41" r="7" fill="#ff756d"/><circle cx="68" cy="41" r="7" fill="#f4c75d"/><circle cx="92" cy="41" r="7" fill="#6ed78b"/>
+      <text x="125" y="48" fill="#d9edf3" font-family="Arial, Microsoft YaHei, sans-serif" font-size="17">http://localhost:3000 · 海拉鲁全图导航</text>
+
+      <g transform="translate(18 82)">
+        <rect width="566" height="330" rx="16" fill="url(#map)"/>
+        <rect width="566" height="330" rx="16" fill="url(#grid)"/>
+        <path d="M42 250 C130 160 190 210 256 115 S388 56 525 96" fill="none" stroke="#d9e8ce" stroke-opacity="0.42" stroke-width="9"/>
+        <path d="M60 278 C170 246 264 288 364 220 S470 172 548 205" fill="none" stroke="#67c7dd" stroke-opacity="0.7" stroke-width="7"/>
+        <g fill="#ffe27d" stroke="#4d3e14" stroke-width="3">
+          <circle cx="118" cy="222" r="10"/><circle cx="218" cy="153" r="10"/><circle cx="358" cy="122" r="10"/><circle cx="468" cy="198" r="10"/>
+        </g>
+        <g fill="#8de7ff" stroke="#123e49" stroke-width="3">
+          <path d="M300 244 l12 22 h-24z"/><path d="M418 78 l12 22 h-24z"/>
+        </g>
+        <g filter="url(#glow)">
+          <circle cx="275" cy="188" r="15" fill="#ff6e5a"/>
+          <circle cx="275" cy="188" r="5" fill="#fff"/>
+        </g>
+        <text x="290" y="184" fill="#fff" font-family="Arial, Microsoft YaHei, sans-serif" font-size="16" font-weight="700">林克实时位置</text>
+        <text x="34" y="38" fill="#f7f3d5" font-family="Arial, Microsoft YaHei, sans-serif" font-size="16" font-weight="700">海拉鲁大陆 · 16×16 高清地图</text>
+      </g>
+
+      <g transform="translate(602 82)" font-family="Arial, Microsoft YaHei, sans-serif">
+        <rect width="170" height="330" rx="16" fill="url(#panel)"/>
+        <text x="18" y="34" fill="#f4d477" font-size="18" font-weight="800">连接状态</text>
+        <text x="18" y="66" fill="#82e2b4" font-size="15">● Switch 已连接</text>
+        <line x1="18" y1="82" x2="152" y2="82" stroke="#5d7883" stroke-opacity="0.55"/>
+        <text x="18" y="112" fill="#d7e9ee" font-size="14">坐标</text>
+        <text x="18" y="136" fill="#ffffff" font-size="16" font-weight="700">X 275  Y 188</text>
+        <text x="18" y="166" fill="#d7e9ee" font-size="14">目标路标</text>
+        <text x="18" y="190" fill="#ffe395" font-size="16" font-weight="700">神庙安全落点</text>
+        <rect x="18" y="216" width="134" height="42" rx="10" fill="#d44635"/>
+        <text x="85" y="243" text-anchor="middle" fill="#fff" font-size="15" font-weight="800">发送到 Switch</text>
+        <rect x="18" y="270" width="134" height="42" rx="10" fill="#173b45" stroke="#62d7e6"/>
+        <text x="85" y="297" text-anchor="middle" fill="#a9eef7" font-size="15" font-weight="800">查看传送状态</text>
+      </g>
+    </g>
+
+    <g transform="translate(900 240)">
+      <rect width="430" height="470" rx="46" fill="#11161b" stroke="#38464f" stroke-width="3"/>
+      <rect x="54" y="36" width="322" height="398" rx="20" fill="#0a0d0f"/>
+      <rect x="69" y="52" width="292" height="366" rx="12" fill="#1b1b16"/>
+      <rect x="69" y="52" width="292" height="366" rx="12" fill="#d6b45b" opacity="0.08"/>
+      <text x="88" y="88" fill="#ffffff" font-family="Arial, Microsoft YaHei, sans-serif" font-size="22" font-weight="800">海拉鲁导航</text>
+      <text x="88" y="112" fill="#d8d8d8" font-family="Arial, Microsoft YaHei, sans-serif" font-size="13">图片主题版 0.7.2</text>
+      <line x1="88" y1="128" x2="340" y2="128" stroke="#d5b55d"/>
+      <g font-family="Arial, Microsoft YaHei, sans-serif" font-size="14">
+        <text x="88" y="158" fill="#f5f5f5">Switch IP</text><text x="328" y="158" text-anchor="end" fill="#ffe08a">192.168.x.x</text>
+        <text x="88" y="190" fill="#f5f5f5">电脑服务</text><text x="328" y="190" text-anchor="end" fill="#9ee3a9">已启动</text>
+        <text x="88" y="222" fill="#f5f5f5">Atmosphère dmnt</text><text x="328" y="222" text-anchor="end" fill="#9ee3a9">正常</text>
+        <line x1="88" y1="240" x2="340" y2="240" stroke="#776634" stroke-opacity="0.65"/>
+        <text x="88" y="270" fill="#f4d477" font-weight="800">电脑路标传送</text>
+        <text x="88" y="302" fill="#f5f5f5">目标坐标</text><text x="328" y="302" text-anchor="end" fill="#ffe08a">275 / 188 / 0</text>
+        <rect x="86" y="324" width="256" height="46" rx="10" fill="#2d2618" stroke="#ddbd64"/>
+        <text x="214" y="353" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="800">传送到电脑路标 · 按 A</text>
+        <text x="214" y="397" text-anchor="middle" fill="#ccb773" font-size="12">LINKO · Tesla OVL（无 NSP）</text>
+      </g>
+      <circle cx="26" cy="142" r="13" fill="#26343c"/><circle cx="404" cy="142" r="13" fill="#26343c"/>
+      <circle cx="26" cy="188" r="13" fill="#26343c"/><circle cx="404" cy="188" r="13" fill="#26343c"/>
+      <circle cx="26" cy="330" r="27" fill="#26343c"/><circle cx="404" cy="330" r="27" fill="#26343c"/>
+    </g>
+  </g>
+
+  <text x="700" y="735" text-anchor="middle" fill="#708b94" font-family="Arial, Microsoft YaHei, sans-serif" font-size="14">非官方玩家工具 · 适用于《塞尔达传说：旷野之息》1.6.0 · 原作者 LINKO</text>
+</svg>
