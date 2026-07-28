@@ -37,14 +37,9 @@
 ## 下载最新版
 
 当前 v1.2.0 成品由 GitHub Actions 自动构建：
-
-- [打开最新版构建页面](https://github.com/cuijunhao20000307-web/-2.0/actions)
 - 进入最新一次成功的 **Build Hyrule Navigator 1.2 Fixed Package**
 - 在页面底部 **Artifacts** 下载 `海拉鲁导航-v1.2.0-图片主题修正版`
 
-源代码与自动构建配置位于：
-
-- [海拉鲁导航 v1.2 源代码仓库](https://github.com/cuijunhao20000307-web/-2.0)
 
 ## 主要功能
 
