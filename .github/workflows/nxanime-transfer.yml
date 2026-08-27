@@ -1,8 +1,5 @@
 name: NXAnime Temporary Transfer
 
-permissions:
-  contents: write
-
 on:
   push:
     branches: [ main ]
@@ -13,19 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch verified NXAnime NRO
+      - name: Verify and upload one-hour transfer ZIP
         shell: bash
         run: |
           set -euo pipefail
-          curl -L --fail --retry 3 'https://raw.githubusercontent.com/cuijunhao20000307-web/joycon-color/nxanime-066-build2/dist/NXAnime-0.6.6-smooth-hotfix.nro?token=CBMPD4ZCM5RSNCEF47NGU3TKSCDFBAA' -o NXAnime-0.6.6-smooth-hotfix.nro
+          test -f NXAnime-0.6.6-smooth-hotfix.nro
           echo 'b75fdb6aff0d56424381e72630d39bc9f65c16d6454cc71f18df92469654cb4e  NXAnime-0.6.6-smooth-hotfix.nro' | sha256sum -c -
           test "$(stat -c %s NXAnime-0.6.6-smooth-hotfix.nro)" -eq 22765624
-      - name: Publish temporary transfer file
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add NXAnime-0.6.6-smooth-hotfix.nro
-          git commit -m 'Temporary NXAnime NRO transfer [skip ci]'
-          git push
+          zip -9 -j /tmp/NXAnime-0.6.6-smooth-hotfix.zip NXAnime-0.6.6-smooth-hotfix.nro
+          curl -sS --fail -X POST 'https://tempfile.org/api/upload/local' \
+            -F 'files=@/tmp/NXAnime-0.6.6-smooth-hotfix.zip;type=application/zip' \
+            -F 'expiryHours=1' > /tmp/response.json
+          cat /tmp/response.json
+          python3 - <<'PY'
+          import json
+          p=json.load(open('/tmp/response.json'))
+          assert p.get('success') is True, p
+          f=p['files'][0]
+          print('TEMPFILE_ID=' + f['id'])
+          print('TEMPFILE_URL=' + f['url'])
+          print('TEMPFILE_DOWNLOAD=https://tempfile.org/' + f['id'] + '/download')
+          print('TEMPFILE_SIZE=' + str(f['size']))
+          PY
