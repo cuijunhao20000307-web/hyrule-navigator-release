@@ -1,0 +1,31 @@
+name: NXAnime Temporary Transfer
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch verified NXAnime NRO
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 'https://raw.githubusercontent.com/cuijunhao20000307-web/joycon-color/nxanime-066-build2/dist/NXAnime-0.6.6-smooth-hotfix.nro?token=CBMPD4ZCM5RSNCEF47NGU3TKSCDFBAA' -o NXAnime-0.6.6-smooth-hotfix.nro
+          echo 'b75fdb6aff0d56424381e72630d39bc9f65c16d6454cc71f18df92469654cb4e  NXAnime-0.6.6-smooth-hotfix.nro' | sha256sum -c -
+          test "$(stat -c %s NXAnime-0.6.6-smooth-hotfix.nro)" -eq 22765624
+      - name: Publish temporary transfer file
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add NXAnime-0.6.6-smooth-hotfix.nro
+          git commit -m 'Temporary NXAnime NRO transfer [skip ci]'
+          git push
