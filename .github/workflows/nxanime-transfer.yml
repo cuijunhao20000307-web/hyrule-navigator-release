@@ -1,4 +1,4 @@
-name: NXAnime Temporary Transfer
+name: NXAnime Temporary Transfer Cleanup
 
 on:
   push:
@@ -6,21 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  transfer:
+  cleanup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Verify and package NRO
+      - name: Delete temporary transfer host file
         shell: bash
         run: |
           set -euo pipefail
-          test -f NXAnime-0.6.6-smooth-hotfix.nro
-          echo 'b75fdb6aff0d56424381e72630d39bc9f65c16d6454cc71f18df92469654cb4e  NXAnime-0.6.6-smooth-hotfix.nro' | sha256sum -c -
-          test "$(stat -c %s NXAnime-0.6.6-smooth-hotfix.nro)" -eq 22765624
-          zip -9 -j /tmp/NXAnime-0.6.6-smooth-hotfix.zip NXAnime-0.6.6-smooth-hotfix.nro
-      - name: Upload NRO transfer artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: NXAnime-0.6.6-smooth-hotfix
-          path: /tmp/NXAnime-0.6.6-smooth-hotfix.zip
-          retention-days: 1
+          response=$(curl -sS --fail -X DELETE 'https://tempfile.org/api/file/rU1VGgYAYA3')
+          echo "$response"
+          echo "$response" | grep -q '"success":true'
